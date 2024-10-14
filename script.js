@@ -36,11 +36,16 @@ function getMealList() {
         });
         mealList.classList.remove("notFound");
       } else {
-        html = "sorry we didn't find any meal";
+        html = "Sorry, we didn't find any meal";
         mealList.classList.add("notFound");
       }
 
       mealList.innerHTML = html;
+    })
+    .catch((error) => {
+      console.error("Error fetching meals:", error);
+      mealList.innerHTML =
+        "An error occurred while fetching meals. Please try again later.";
     });
 }
 
